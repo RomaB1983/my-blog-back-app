@@ -1,15 +1,13 @@
 package ru.yandex.practicum.controller;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import ru.yandex.practicum.configuration.ControllerConfig;
-import ru.yandex.practicum.configuration.RepositoryConfig;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import ru.yandex.practicum.dto.PostRequest;
 import ru.yandex.practicum.model.Post;
 import ru.yandex.practicum.repository.PostRepository;
+import ru.yandex.practicum.service.PostService;
 
 import java.util.Optional;
 
@@ -18,14 +16,13 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doReturn;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = {RepositoryConfig.class, ControllerConfig.class})
+@SpringBootTest(classes = {PostController.class, PostService.class})
 class PostControllerTest {
 
     @Autowired
     private PostController postController;
 
-    @Autowired
+    @MockitoBean
     private PostRepository postRepository;
 
     @Test

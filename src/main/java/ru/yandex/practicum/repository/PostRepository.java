@@ -1,7 +1,7 @@
 package ru.yandex.practicum.repository;
 
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.*;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.stereotype.Repository;
 import ru.yandex.practicum.dto.PostResponse;
@@ -14,8 +14,12 @@ import ru.yandex.practicum.repository.mapper.PagenablePostRowMapper;
 import ru.yandex.practicum.repository.mapper.PostRowMapper;
 import ru.yandex.practicum.service.utils.StringUtils;
 
-import java.sql.*;
-import java.util.*;
+import java.sql.PreparedStatement;
+import java.sql.Types;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -53,15 +57,24 @@ public class PostRepository {
         List<PagenablePost> posts = jdbcTemplate.query(
                 sql,
                 new Object[]{
-                        "%" +  result.get("titles") + "%",
+                        "%" + result.get("titles") + "%",
                         result.get("tags"),
                         result.get("tags"),
                         pageSize,
                         offset},
+                new int[]{
+                        java.sql.Types.VARCHAR,
+                        java.sql.Types.VARCHAR,
+                        java.sql.Types.VARCHAR,
+                        Types.INTEGER,
+                        Types.INTEGER
+                },
                 new PagenablePostRowMapper()
         );
-
-        int lastPage = (int) Math.ceil((double) posts.getFirst().getTotalCount() / pageSize);
+        int lastPage = 0;
+        if (! posts.isEmpty()) {
+            lastPage = (int) Math.ceil((double) posts.getFirst().getTotalCount() / pageSize);
+        }
         boolean hasPrev = pageNumber > 1;
         boolean hasNext = pageNumber < lastPage;
 

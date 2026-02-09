@@ -8,6 +8,7 @@ public class PostRequest {
     private List<String> tags;
 
     public PostRequest(String title) {
+        this.title = title;
     }
 
     // Геттеры и сеттеры

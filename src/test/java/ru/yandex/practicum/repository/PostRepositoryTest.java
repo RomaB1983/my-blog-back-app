@@ -1,11 +1,8 @@
 package ru.yandex.practicum.repository;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import ru.yandex.practicum.configuration.RepositoryConfig;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import ru.yandex.practicum.model.Post;
 
 import java.util.Optional;
@@ -13,11 +10,10 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.doReturn;
 
-@ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes = RepositoryConfig.class)
+@SpringBootTest(classes = PostRepository.class)
 class PostRepositoryTest {
 
-    @Autowired
+    @MockitoBean
     private PostRepository repository;
 
     @Test
