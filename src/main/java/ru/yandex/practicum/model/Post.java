@@ -21,6 +21,14 @@ public class Post {
         this.title = title;
     }
 
+    public Post(Long id, String title, String text, List<String> tags, int likesCount) {
+        this.id = id;
+        this.title = title;
+        this.text = text;
+        this.tags = tags;
+        this.likesCount = likesCount;
+    }
+
     // Геттеры и сеттеры
     public Long getId() {
         return id;

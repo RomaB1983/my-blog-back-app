@@ -12,4 +12,15 @@ public class CommentResponse {
         this.postId = postId;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public Long getPostId() {
+        return postId;
+    }
 }

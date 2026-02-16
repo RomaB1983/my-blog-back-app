@@ -3,10 +3,10 @@ package ru.yandex.practicum.dto;
 import java.util.List;
 
 public class PostsPageResponse {
-    private final List<PostResponse> posts;
-    private final boolean hasPrev;
-    private final boolean hasNext;
-    private final int lastPage;
+    private  List<PostResponse> posts;
+    private boolean hasPrev;
+    private  boolean hasNext;
+    private  int lastPage;
 
     // Конструктор
     public PostsPageResponse(List<PostResponse> posts, boolean hasPrev, boolean hasNext, int lastPage) {
@@ -14,6 +14,10 @@ public class PostsPageResponse {
         this.hasPrev = hasPrev;
         this.hasNext = hasNext;
         this.lastPage = lastPage;
+    }
+
+    public PostsPageResponse() {
+
     }
 
     // Геттеры

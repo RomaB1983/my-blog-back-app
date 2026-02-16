@@ -11,6 +11,15 @@ public class PostRequest {
         this.title = title;
     }
 
+    public PostRequest() {
+    }
+
+    public PostRequest(String title, String text, List<String> tags) {
+        this.title = title;
+        this.text = text;
+        this.tags = tags;
+    }
+
     // Геттеры и сеттеры
     public String getTitle() {
         return title;

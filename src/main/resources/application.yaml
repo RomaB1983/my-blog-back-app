@@ -1,10 +1,12 @@
 spring:
   application:
     name: blog-back-app
-
-  sql:
-    init:
-      mode: always
+#  test:
+#    database:
+#      replace: none
+#  sql:
+#    init:
+#      mode: always
 
   datasource:
       url: jdbc:postgresql://localhost:5433/postdb

@@ -24,7 +24,7 @@ public class PostService {
         var page = postRepository.findPosts(search, pageNumber, pageSize);
         page.getPosts().forEach(p -> {
             if (p.getText() != null && !p.getText().isEmpty() && p.getText().length() > 128) {
-                p.setText(p.getText().substring(0, 127) + "...");
+                p.setText(p.getText().substring(0, 128) + "...");
             }
         });
         return page;
