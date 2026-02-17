@@ -6,6 +6,15 @@ public class Comment {
 
     private String text;
 
+    public Comment() {
+    }
+
+    public Comment(Long id, Long postId, String text) {
+        this.id = id;
+        this.postId = postId;
+        this.text = text;
+    }
+
     // Геттеры и сеттеры
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }

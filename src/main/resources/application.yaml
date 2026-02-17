@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: blog-back-app
+#  test:
+#    database:
+#      replace: none
+#  sql:
+#    init:
+#      mode: always
+
+  datasource:
+      url: jdbc:postgresql://localhost:5433/postdb
+      username: postuser
+      password: postpass
+      driver-class-name: org.postgresql.Driver

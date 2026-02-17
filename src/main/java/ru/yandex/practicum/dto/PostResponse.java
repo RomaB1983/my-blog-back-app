@@ -6,9 +6,9 @@ public class PostResponse {
     private final Long id;
     private final String title;
     private  String text;
-    private final List<String> tags;
-    private final Integer likesCount;
-    private final Integer commentsCount;
+    private  List<String> tags;
+    private  Integer likesCount;
+    private  Integer commentsCount;
 
     // Конструктор
     public PostResponse(Long id, String title, String text, List<String> tags,
@@ -19,6 +19,11 @@ public class PostResponse {
         this.tags = tags;
         this.likesCount = likesCount;
         this.commentsCount = commentsCount;
+    }
+
+    public PostResponse(Long id, String title) {
+        this.id = id;
+        this.title = title;
     }
 
     // Геттеры (сеттеры не нужны для ответа)

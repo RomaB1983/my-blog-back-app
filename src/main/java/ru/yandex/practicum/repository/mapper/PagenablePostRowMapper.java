@@ -1,9 +1,7 @@
 package ru.yandex.practicum.repository.mapper;
 
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.lang.NonNull;
 import ru.yandex.practicum.model.PagenablePost;
-import ru.yandex.practicum.model.Post;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

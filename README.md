@@ -1,4 +1,4 @@
-# Spring-приложение my-blog-back-app реализует backend для работы с постами, комментариями и файлами.
+# Spring Boot -приложение blog-back-app реализует backend для работы с постами, комментариями и файлами.
 
 ## Приложение построено по Шаблону проектирования «Controller → Service → Repository»
 
@@ -8,14 +8,14 @@
 
 ## Используемые технологии
 - Java 21
-- Spring Framework (Web MVC, JDBC)
+- Spring Boot
+- Spring Boot Test
 - Servlet API
 - JUnit 5
 - Mockito
-- Maven
+- Gradle
 
 ## Структура проекта
-- configuration — Spring конфигурация
 - controller — контроллеры для работы с постами и файлами
 - dto - объекты для передачи запросов/ответов
 - model — доменные модели
@@ -24,16 +24,16 @@
 - utils — вспомогательные классы
 
 ## Настройки
-`src/main/resources/application.properties`
+`src/main/resources/application.yaml`
 
 ## Схема БД Postgress инициализируется автоматически
 `src/main/resources/schema.sql`
 
-## Сборка WAR файла
-mvn clean package
+## Сборка JAR файла
+gradle clean bootJar
 
 ## Запуск тестов
-mvn test
+gradle test
 
 ##  Реализованные API
 - Получение ленты постов (с пагинацией и поиском)
